@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalium - New Arrivals</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background-color: grey; /* Màu nền toàn bộ trang */
+            color: white; /* Màu chữ chính */
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            background-color: transparent;
+            position: relative;
+            z-index: 2;
+        }
+
+        header h1 {
+            font-family: 'Georgia', serif;
+            font-size: 32px;
+            color: black;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            position: relative;
+            display: inline-block;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            color: black;
+        }
+
+        /* Dropdown menu */
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgb(3, 3, 3);
+            padding: 10px 0;
+            border-radius: 5px;
+            z-index: 100;
+        }
+
+        nav ul li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px 20px;
+            color: white;
+        }
+
+        .dropdown a:hover {
+            background-color: grey;
+        }
+
+        /* Main Section */
+        .main-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px;
+            background-color: grey;
+            flex-wrap: wrap;
+        }
+
+        .main-section .content {
+            max-width: 500px;
+        }
+
+        .main-section h2 {
+            font-family: 'Georgia', serif;
+            font-size: 48px;
+            color: white;
+            margin: 0;
+        }
+
+        .main-section p {
+            font-size: 18px;
+            color: white;
+            margin: 20px 0;
+        }
+
+        .main-section button {
+            background-color: black;
+            color: white;
+            padding: 15px 30px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .main-section button:hover {
+            background-color: grey;
+        }
+
+        .main-section .image {
+            max-width: 50%;
+        }
+
+        .main-section .image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        /* Products Section */
+        .products {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 30px 20px;
+        }
+
+        .product {
+            background-color: #2b2b2b;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            transition: transform 0.3s; /* Hiệu ứng chuyển động */
+        }
+
+        .product:hover {
+            transform: translateY(-5px); /* Nâng sản phẩm lên khi hover */
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            transition: transform 0.3s, box-shadow 0.3s; /* Hiệu ứng chuyển động mượt mà */
+        }
+
+        .product:hover img {
+            transform: scale(1.05); /* Tăng kích thước ảnh khi hover */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Thêm bóng đổ */
+        }
+
+        .product h2, .product p {
+            transition: color 0.3s; /* Hiệu ứng chuyển màu chữ khi hover */
+        }
+
+        .product:hover h2, .product:hover p {
+            color: #ff6347; /* Thay đổi màu chữ khi hover */
+        }
+
+        /* Slider buttons */
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .slider-btn.left {
+            left: 20px;
+        }
+
+        .slider-btn.right {
+            right: 20px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .main-section {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .main-section .image {
+                max-width: 100%;
+            }
+
+            header {
+                padding: 10px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .products {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Kalium</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">Home</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Home Fullscreen</a></li>
+                        <li><a href="#">Home Parallax</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Shop</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Women</a></li>
+                        <li><a href="#">Men</a></li>
+                        <li><a href="#">Shoes</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Product</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Simple Product</a></li>
+                        <li><a href="#">Variable Product</a></li>
+                        <li><a href="#">External Product</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">News</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Sidebar Right</a></li>
+                        <li><a href="#">Sidebar Left</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Pages</a>
+                    <ul class="dropdown">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Buy Now</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="main-section">
+        <div class="image">
+            <img src="https://demo.kaliumtheme.com/fashion/wp-content/uploads/2016/12/home_slider_1.png" alt="Fall & Winter Coat Collection">
+        </div>
+        <div class="content">
+            <h2>Fall & Winter Coat Collection</h2>
+            <p>The latest collections from the British brands. Pre-order now and get your order this December.</p>
+            <button>Shop Now</button>
+        </div>
+    </section>
+
+    <h1 style="text-align: center; margin-top: 40px;">New Arrivals</h1>
+    <p style="text-align: center;">Latest from our Store</p>
+
+    <div class="products">
+        <div class="product">
+            <img src="https://demo.kaliumtheme.com/fashion/wp-content/uploads/2016/11/broken_2-550x681.jpg" alt="Broken T Shirt">
+            <h2>Broken T Shirt</h2>
+            <p>$9</p>
+            <p>Men, T Shirts</p>
+        </div>
+        <div class="product">
+            <img src="https://demo.kaliumtheme.com/fashion/wp-content/uploads/2016/11/knickerboxer_1-550x681.jpg" alt="Knickerboxer">
+            <h2>Knickerboxer</h2>
+            <p>$25</p>
+            <p>Men, Sweaters</p>
+        </div>
+        <div class="product">
+            <img src="https://demo.kaliumtheme.com/fashion/wp-content/uploads/2016/11/studio_belt_4-550x681.jpg" alt="Studio Belt">
+            <h2>Studio Belt</h2>
+            <p>$7</p>
+            <p>Accessories</p>
+        </div>
+        <div class="product">
+            <img src="https://demo.kaliumtheme.com/fashion/wp-content/uploads/2016/11/chambray_shirt_1-550x681.jpg" alt="Chambray Shirt">
+            <h2>Chambray Shirt</h2>
+            <p>$29</p>
+            <p>Men, Sweaters</p>
+        </div>
+    </div>
+</body>
+</html>
+
